@@ -1,0 +1,35 @@
+[
+  {
+    "tableCount": 20
+  },
+  {
+    "name": "Chardonnay",
+    "quantities":[
+      {
+        "quantity": "1/8",
+        "price": 1.5
+      },
+      {
+        "quantity": "1/4",
+        "price": 3
+      },
+      {
+        "quantity": "Flasche",
+        "price": 12
+      }
+    ] 
+  },
+  {
+    "name": "Schweisbraten",
+    "quantities":[
+      {
+        "quantity": "ganz",
+        "price": 8
+      },
+      {
+        "quantity": "halb",
+        "price": 4
+      }
+    ]
+  }
+]

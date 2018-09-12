@@ -1,0 +1,345 @@
+/*!
+ * The following css styles are stored globaly for easy access and therefore 
+ * quickly apply changes to the overall color scheme & component alignment of the App.
+ * As to be expected: keep the class names, change the values / add parameters.
+ * There are color definitions, to keep an uniform color style for the whole page and make changes fast and easy.
+ * For example color plates visit: http://materializecss.com/color.html 
+ */
+
+
+/*---------- START BACKGROUND COLOR ---------------------------------------------*/
+
+body {
+    /* background-image: url('../img/background.jpg'); */
+    background: #f2f2f2;
+    /*add "" if you want */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/*---------- END BACKGROUND COLOR ---------------------------------------------*/
+
+
+/*----------- START COLORS FOR WARNING SIGNALS @STATUSBAR COMPONENT---------------*/
+
+.yellow {
+    background: #ffea00 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.red {
+    background: #d32f2f !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.green {
+    background: #76ff03 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+
+/*----------- END COLORS FOR WARNING SIGNALS @STATUSBAR COMPONENT-----------------*/
+
+
+/* Print functionality stuff */
+
+.print-background-color {
+    -webkit-print-color-adjust: exact;
+}
+
+
+/*------------ START NAVBAR FUNCTIONALITY AND COLOR ------------------------------*/
+
+.nav-wrapper {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0089d0+0,ffffff+33,ffffff+66,0089d0+100 */
+    background-color: #009999 !important;
+    -webkit-print-color-adjust: exact;
+    /* Old browsers */
+    /*ackground: -moz-linear-gradient(left, #009999 0%, #ffffff 33%, #ffffff 66%, #009999 100%); /* FF3.6-15 */
+    /*background: -webkit-linear-gradient(left, #009999 0%,#ffffff 33%,#ffffff 66%,#009999 100%); /* Chrome10-25,Safari5.1-6 */
+    /*background: linear-gradient(to right, #009999 0%,#ffffff 33%,#ffffff 66%,#009999 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009999', endColorstr='#009999',GradientType=1 ); /* IE6-9 */
+}
+
+
+/* Fix for the Company logo @ NAV BAR  */
+/* Modifications from Phil-O reference to new Design Guides from Christoph T.*/
+#company-logo {
+    height: auto;
+    width: 165px;
+}
+
+#demoLogoWrapper {
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+}
+
+.viewlogo {
+    width: 357px;
+    margin-right: 35px;
+    vertical-align: middle;
+}
+
+.customerlogo {
+    width: 76px;
+    vertical-align: middle;
+}
+
+
+/*giving the headline also 60px height and smoothing out the menubox + headline with the logo */
+
+#headline h4 {
+    padding-left: 10px;
+    color: white;
+    font-size: 28px
+    /*text-shadow: 2px 2px #009999;*/
+}
+
+
+/*------------ END NAVBAR FUNCTIONALITY AND COLOR --------------------------------*/
+
+
+/*--------------------------- START COLORS FOR COMPONENT HEADBOXES----------------
+ * For color pairs e.g. black background and white Font color, use:
+ * font-color in the classes below, example @ color-progress-bar
+*/
+
+.color-progress-bar {
+    background: #424242 !important;
+    color: #f9f9f9 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.color-status-bar {
+    background-color: rgba(0, 153, 153, 0.8) !important;
+    -webkit-print-color-adjust: exact;
+}
+
+.color-column-title {
+    -webkit-print-color-adjust: exact;
+}
+
+.color-header {
+    background-color: #009999 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+
+/*--------------------------------END COMPONENT COLOR-----------------------------*/
+
+
+/*
+ * Default text height to change the Headline sizes of the components use the h5 tag (current = default) for components
+ * and h2 tag for colum headlines
+ */
+
+h5 {
+    font-size: 1.6em !important;
+    color: #ffffff !important;
+     font-family: "siemens"
+}
+
+h2 {
+    font-size: 2.8em !important;
+    color: #ffffff !important;
+    font-family: "siemens"
+}
+h6{
+    font-family: "siemens"
+
+}
+
+/* keybox-font-size is used for the warning boxes of the statusbar */
+
+.keybox-font-size {
+    font-size: 0.9em !important
+}
+
+.default-font-size {
+    font-size: 1.1em !important;
+}
+
+.default-comment-font-size {
+    font-size: 0.9em !important;
+}
+
+
+/*
+ * Here are some definitions for icons used in the various Traffic Light Modules
+ */
+
+.green-circle-icon {
+    background: url('../img/green-circle.svg') no-repeat;
+    background-size: 110%;
+    margin-top: 8px;
+    -webkit-print-color-adjust: exact;
+}
+
+.yellow-circle-icon {
+    background: url('../img/yellow-circle.svg') no-repeat;
+    background-size: 110%;
+    margin-top: 8px;
+    -webkit-print-color-adjust: exact;
+}
+
+.red-circle-icon {
+    background: url('../img/red-circle.svg') no-repeat;
+    background-size: 110%;
+    margin-top: 8px;
+    -webkit-print-color-adjust: exact;
+}
+
+.grey-circle-icon {
+    background: url('../img/grey-circle.svg') no-repeat;
+    background-size: 110%;
+    margin-top: 8px;
+    -webkit-print-color-adjust: exact;
+}
+
+.traffic-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.traffic-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    width: 120px;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.traffic-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.traffic-tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tabs .tab a {
+    background-color: #41aac8 !important;
+    color: #ffffff !important;
+}
+
+.tabs .tab a:hover {
+    background-color: #a2cad4 !important;
+    color: #e1ecf4 !important;
+    cursor: pointer;
+}
+
+.material-icons.chart {
+    background-color: #41aac8 !important;
+    color: orange!important;
+    font-size: 3rem !important
+}
+
+.material-icons.chart:hover {
+    background-color: #a2cad4 !important;
+    color: rgba(230, 192, 91, 0.993) !important;
+    font-size: 3rem !important;
+    cursor: pointer;
+}
+
+.trafficLight-label {
+    font-size: 1.1rem;
+    cursor: help;
+    margin-top: 20px;
+}
+
+.explanation {
+    display: block;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+
+/*Defining general component*/
+
+.rounded {
+    border-radius: 3px !important;
+    border-style: none !important;
+    
+}
+
+.rounded-header {
+    border-radius: 3px 3px 0px 0px !important;
+    border-style: none !important;
+}
+
+.rounded-item-without-header {
+    border-radius: 3px !important;
+    border-style: none !important;
+    padding-bottom: 0px !important;
+}
+
+.rounded-item-with-header {
+    border-radius: 0px 0px 3px 3px !important;
+    border-style: none !important;
+}
+
+.color-item {
+    border-style: none !important;
+    padding:0 !important
+
+}
+
+
+/* Card component */
+
+.collection-header {
+    border-bottom: 0px !important;
+}
+
+.collection-item {
+    padding: 0!important;
+    background-color: transparent;
+}
+
+.not-valid-component {
+    height: 100px;
+    border-radius: 3px !important;
+    background: inherit !important;
+    background-color: rgba(0, 153, 153, 0.2) !important;
+    cursor: help;
+}
+
+.component .row {
+    margin-bottom: 0px;
+}
+
+body {
+    overflow-y: scroll;
+    /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+}
+
+@media print {
+    .dont-print {
+        display: none;
+    }
+}
+
+@font-face{
+    font-family: 'siemens';
+    src: url('../img/fonts/sisan03.ttf')
+}
