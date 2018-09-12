@@ -1,0 +1,7 @@
+node_modules/**
+resources_template/**
+resources/dist/build.css
+resources/dist/build.js
+npm-debug*
+
+manifest.yml

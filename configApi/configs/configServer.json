@@ -1,0 +1,15 @@
+{
+    "title": "Service-Tool Server",
+    "viewTitle": "Service-Tool Server",
+    "assetpicture": "./src/img/w036.gif",
+    "configTitle": "configServer",
+    "components": [
+      {
+        "type": "listComponent"
+      },
+      {
+        "type": "billComponent",
+        "chosenBill": null
+      }
+    ]
+  }

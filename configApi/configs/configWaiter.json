@@ -1,0 +1,11 @@
+{
+  "title": "Service-Tool Waiter",
+  "viewTitle": "Service-Tool Waiter",
+  "assetpicture": "./src/img/w036.gif",
+  "configTitle": "configWaiter",
+  "components": [
+    {
+      "type": "waiterComponent"
+    }
+  ]
+}

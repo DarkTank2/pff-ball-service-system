@@ -1,0 +1,11 @@
+{
+    "title": "Service-Tool Login",
+    "viewTitle": "Service-Tool Login",
+    "assetpicture": "./src/img/w036.gif",
+    "configTitle": "configLogin",
+    "components": [
+      {
+        "type": "loginComponent"
+      }
+    ]
+  }
