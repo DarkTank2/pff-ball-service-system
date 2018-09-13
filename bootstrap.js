@@ -15,6 +15,7 @@ var staticFolder = 'resources'; // define folder for static resources
 app.use(require("./itemsApi/router"));  //if we are running locally we are using some mocked APIs to be independent from Mindsphere
 app.use('/api', require("./configApi/router"));
 app.use('/libs', require("./librouter"));
+app.use('/database', require("./databaseApi/router"));
 app.use('/', express.static(path.join(staticFolder, 'index.html')));
 app.use(express.static(staticFolder));
 

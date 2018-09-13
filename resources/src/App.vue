@@ -138,6 +138,66 @@ export default {
           logger.error("fetchItems(" + itemsPath + ") " + err);
         });
     },
+
+    loginExecuted: function(role, username, password) {
+      var baseurl = "";
+      if(username != undefined && password != undefined && role == "master"){
+        baseurl = "/database/master?";
+        var loginObject = {
+          username: username,
+          password: password
+        }
+        baseurl += encodeURIComponent(JSON.stringify(loginObject));
+        this.$http.get(baseurl).then(
+        response => {
+          console.log(JSON.stringify(response));
+          this.userRole = "master";
+          this.changeConfig("configMaster");
+        },
+        error => {
+          //logger.error("loginExecuted@master(" + baseurl + ") error: " + error);
+          if(error.status == 404)
+          {
+            alert("Error during login-process!\nLogin terminated.");
+          }
+          
+          else{
+            logger.error("loginExecuted@master(" + baseurl + ") error: " + error);
+          }
+        }
+      );
+      }
+      else if(role == "waiter")
+      {
+        var data = {something: "irgendwas"};
+        var baseurl = "/database/storeBillsFood?";
+        baseurl += encodeURIComponent(JSON.stringify(data));
+        this.$http.get(baseurl).then(response => {
+          console.log(JSON.stringify(response));
+          baseurl = "/database/getAllBillsFood";
+          this.$http.get(baseurl).then(response => {
+            console.log(JSON.stringify(response));
+          },
+          error => {
+            console.log(error);
+          });
+        },
+        error => {
+          console.log(error);
+        });
+      }
+      else if (role == "servant")
+      {
+
+      }
+    },
+
+    postCall: function(url){
+
+    },
+    getCall: function(url){
+
+    }
     
   },
   /**
@@ -154,9 +214,11 @@ export default {
     this.fetchItems();
     
     //add eventbus hooks here
-    EventBus.$on("changeConfig", this.changeConfig);
+    EventBus.$on("loginExecuted", this.loginExecuted);
     
   },
+
+
   
   components: {
     columns

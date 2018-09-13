@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.3",
     "bunyan": "^1.8.10",
     "cfenv": "^1.1.0",
     "chart.js": "^2.7.2",
@@ -20,6 +21,7 @@
     "moment-timezone": "^0.5.18",
     "nodemon": "^1.17.5",
     "request": "^2.87.0",
+    "sqlite3": "^4.0.2",
     "vue": "^2.0.1",
     "vue-chartjs": "^3.3.2",
     "vue-cli": "^2.9.6",

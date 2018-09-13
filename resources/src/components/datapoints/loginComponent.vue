@@ -37,17 +37,17 @@ export default {
          */
         loginMaster: function(username, password) {
             //alert("logged in with " + username + " and " + password);
-            EventBus.$emit("changeConfig", "configMaster");
+            EventBus.$emit("loginExecuted", "master", username, password);
         },
 
         loginServant: function() {
             //alert("logged in as Servant");
-            EventBus.$emit("changeConfig", "configMaster");
+            EventBus.$emit("loginExecuted", "servant");
         },
         
         loginWaiter: function() {
             //alert("logged in as Waiter");
-            EventBus.$emit("changeConfig", "configWaiter");
+            EventBus.$emit("loginExecuted", "waiter");
         }
     }
 }
