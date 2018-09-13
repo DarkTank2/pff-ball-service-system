@@ -2,6 +2,7 @@ node_modules/**
 resources_template/**
 resources/dist/build.css
 resources/dist/build.js
+databaseApi/loginData.json
 npm-debug*
 
 manifest.yml
