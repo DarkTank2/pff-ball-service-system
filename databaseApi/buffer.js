@@ -12,10 +12,10 @@ function initializeBuffer()
 {
     console.log("initializeBuffer()");
     database = new sqlite.Database(':memory:');
-    database.run("CREATE TABLE orderFood (value real, timestamp char(8))");
-    database.run("CREATE TABLE orderDrinks (value real, timestamp char(8))");
-    database.run("CREATE TABLE billsFood (value real, timestamp char(8))");
-    database.run("CREATE TABLE billsDrinks (value real, timestamp char(8))");
+    database.run("CREATE TABLE orderFood (_index int, value real, timestamp char(8))");
+    database.run("CREATE TABLE orderDrinks (_index int, value real, timestamp char(8))");
+    database.run("CREATE TABLE billsFood (_index int, value real, timestamp char(8))");
+    database.run("CREATE TABLE billsDrinks (_index int, value real, timestamp char(8))");
 }
 
 function getOrderIndex()
@@ -26,53 +26,17 @@ function getOrderIndex()
     return retval;
 }
 
-function storeOrderFood(order)
-{
-    console.log("storeOrderFood( "+ JSON.stringify(order)+" )");
-    var timestamp = moment();
-    var db = database.prepare("INSERT INTO orderFood VALUES (?,?)");
-    db.run(order, timestamp);
-}
-
-function storeOrderDrinks(order)
-{
-    console.log("storeOrderDrinks( "+ JSON.stringify(order)+" )");
-    var timestamp = moment();
-    var db = database.prepare("INSERT INTO orderDrinks VALUES (?,?)");
-    db.run(order, timestamp);
-}
-
-function storeBillsFood(order)
-{
-    console.log("storeBillsFood( "+ JSON.stringify(order)+" )");
+function storeData(tableName, data) {
+    console.log("storeOrderFood( "+ tableName+" )");
     var timestamp = moment().format();
-    var db = database.prepare("INSERT INTO billsFood VALUES (?,?)");
-    try{
-        db.run(JSON.stringify(order), timestamp);
-    }
-    catch(err){
-        console.log(err);
-    }
+    var db = database.prepare("INSERT INTO " + tableName + " VALUES (?,?,?)");
+    db.run(data.orderIndex, JSON.stringify(data), timestamp);
 }
 
-function storeBillsDrinks(order)
-{
-    console.log("storeBillsDrinks( "+ JSON.stringify(order)+" )");
-    var timestamp = moment();
-    var db = database.prepare("INSERT INTO billsDrinks VALUES (?,?)");
-    try{
-        db.run(JSON.stringify(order), timestamp);
-    }
-    catch(err){
-        console.log(err);
-    }
-    
-}
-
-function getAllBillsFood(){
+function getAllFromTable(tableName){
     return new Promise(function(resolve, reject) {
         database.serialize(function(){
-            var query = "SELECT * FROM billsFood";
+            var query = "SELECT * FROM " + tableName;
             database.all(query, function(err, data) {
                 if(err)
                 {
@@ -86,20 +50,28 @@ function getAllBillsFood(){
     });
 }
 
-function getFirstOrderFood(){
+function clearTable(tableName){
 
 }
 
-function getFirstOrderDrinks(){
-
+function deleteOrderByIndex(tableName, index) {
+    return new Promise(function(resolve, reject) {
+        database.run("DELETE FROM "+tableName+" WHERE _index=?", index, function(err) {
+            if(err)
+            {
+                reject(err);
+            }
+            else{
+                resolve();
+            }
+        });
+    });
 }
 
 module.exports = {
     initializeBuffer: initializeBuffer,
-    storeBillsDrinks: storeBillsDrinks,
-    storeBillsFood: storeBillsFood,
-    storeOrderDrinks: storeOrderDrinks,
-    storeOrderFood: storeOrderFood,
-    getAllBillsFood: getAllBillsFood,
-    getOrderIndex: getOrderIndex
+    storeData: storeData,
+    getAllFromTable: getAllFromTable,
+    getOrderIndex: getOrderIndex,
+    deleteOrderByIndex: deleteOrderByIndex
 }

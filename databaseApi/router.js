@@ -28,6 +28,30 @@ function getURLData(originalUrl)
   return JSON.parse(data);
 }
 
+function getFirstOrder(tableName) {
+  return new Promise(function(resolve, reject) {
+    buffer.getAllFromTable(tableName).then(function(orders) {
+      if(orders.length > 0)
+      {
+        var firstOrder = JSON.parse(orders[0].value);
+        var orderIndex = firstOrder.orderIndex;
+        buffer.deleteOrderByIndex(tableName, orderIndex).then(function() {
+          resolve(firstOrder);
+        },
+        function(err) {
+          reject({response: {error: err, message: "Fehler beim löschen der Bestellung mit der Nummer: " + orderIndex}});
+        });
+      }
+      else{
+        resolve({});
+      }
+    },
+    function(err) {
+      reject({response: {error: err, message: "Fehler beim holen alle Bestellungen aus der Datenbank für Essen!"}});
+    });
+  });
+}
+
 /**
  * This route delivers the timeseries of an aspect of a single asset.
  */
@@ -46,6 +70,46 @@ router.get("/master", function (request, response, next) {
   }
 });
 
+router.get("/storeOrder", function(request, response, next) {
+  logGETParameters(request);
+  var data = getURLData(request.originalUrl);
+  var orderIndex = buffer.getOrderIndex();
+  if(data.food != undefined)
+  {
+    var orderFood = data.food;
+    orderFood.orderIndex = orderIndex;
+    buffer.storeData("orderFood", orderFood);
+  }
+  if(data.drinks != undefined)
+  {
+    var orderDrinks = data.drinks;
+    orderDrinks.orderIndex = orderIndex;
+    buffer.storeData("orderDrinks", orderDrinks);
+  }
+  response.status(200).json({response: orderIndex});
+});
+
+router.get("/getFirstOrderFood", function(request, response, next) {
+  logGETParameters(request);
+  getFirstOrder("orderFood").then(function(data) {
+    response.status(200).json(data);
+  },
+  function(err) {
+    response.status(404).json(err);
+  });
+});
+
+router.get("/getFirstOrderDrinks", function(request, response, next) {
+  logGETParameters(request);
+  getFirstOrder("orderDrinks").then(function(data) {
+    response.status(200).json(data);
+  },
+  function(err) {
+    response.status(404).json(err);
+  });
+});
+
+
 router.get("/storeBillsFood", function(request, response, next) {
   logGETParameters(request);
   var data = getURLData(request.originalUrl);
@@ -61,7 +125,7 @@ router.get("/getAllBillsFood", function(request, response, next) {
     response.status(200).json(data);
   }, function(err) {
     console.log(err);
-    response.status(404).json({response: "not ok"})
+    response.status(404).json({response: {error: err, message: "Es ist ein Fehler in der Rechnungs-Datenbank aufgetreten!\nWende dich bitte an das Buffet-Team."}});
   });
 });
 
