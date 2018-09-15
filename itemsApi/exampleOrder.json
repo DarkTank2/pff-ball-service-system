@@ -1,0 +1,16 @@
+{
+    "food":{
+        "schweinsbraten":{
+            "halb": 5,
+            "ganz": 0
+        }
+    },
+    "drinks":{
+        "chardonnay":
+        {
+            "1/8": 2,
+            "1/4": 5,
+            "flasche": 2
+        }
+    }
+}
