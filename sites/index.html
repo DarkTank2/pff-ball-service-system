@@ -1,0 +1,65 @@
+<!-- Version 1.0, 2018 -->
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html>
+<div style="text-align:center"> 					<!-- Oberer Teil der Seite, komplette Breite, Inhalt zentriert -->
+	<div style="width:50%;height:50%;margin:0 auto">			<!--  -->
+	<head>
+		<script language="JavaScript">
+			function mdy(todaysdate) {				<!-- für Jahreszahl im Header der Seite -->
+				return todaysdate.getYear()+1900}
+		</script>
+	</head>
+	<body>
+		<h2>Login 									<!-- Login 2018 -->
+		<script language="JavaScript">
+		year = new Date()
+		document.write (mdy(year))
+		</script>
+		</h2>
+		<p>Waehle zwischen KellnerIn und ServierIn</p>
+	</div>
+</div>
+
+<div style="text-align:center">									<!-- Große Box, deren Inhalt zentriert ist -->
+	<div style="width:50%;margin:10px auto;text-align:center">	<!-- Breite halb so breit wie Bildschirm -->
+		<head>
+			<style>
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #333333;
+			}
+
+			li {												
+				float: bottom;
+				border:solid;
+				border-color:white;
+				border-width: 1px
+			}
+
+			li a {												
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 16px;
+				text-decoration: none;
+			}
+
+			li a:hover {
+				background-color: #111111;
+			}
+			</style>
+		</head>
+		<body>
+			<ul>
+			  <li><a href="#servierer">ServiererIn</a></li>
+			  <li><a href="#kellner">KellnerIn</a></li>
+			</ul>
+		</body>
+	</div>
+</div>
+</html>
