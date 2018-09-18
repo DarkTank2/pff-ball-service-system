@@ -1,0 +1,87 @@
+<!-- Version 1.0, 2018 -->
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<html>	<!-- Background: Balleinladung.jpg -->
+	<!-- <head>		
+		<style>
+			body {
+				background-image: url("Balleinladung.png");
+				background-color: white;
+				background-size: cover;
+			}
+		</style>
+	</head>
+	-->
+	<body>
+		<div style="text-align:center;min-height:180px;display: flex;align-items: center;">
+			<!-- Oberer Teil der Seite, komplette Breite, Inhalt zentriert -->
+			<div style="width:70%;min-height:180px;margin:0 auto;align-items: center">
+			<!--  -->
+			<head>
+				<script language="JavaScript">
+					function mdy(todaysdate) {								<!-- für automatisch aktuelle Jahreszahl im Header der Seite -->
+						return todaysdate.getYear()+1900}
+				</script>
+			</head>
+			<body>
+				<h1>36er<br>Pfadfinderball<br>  									
+					<script language="JavaScript">							<!--  + aktuelle Jahreszahl -->
+						year = new Date()
+						document.write (mdy(year))
+					</script>
+				</h1>
+				<h2>Login</h2>
+				<p>Bist du KellnerIn oder ServierIn</p>
+			</body>
+			</div>
+		</div>
+
+		<div style="text-align:center">									<!-- Auswahl Kellner Servierer -->
+																		<!-- Große Box, deren Inhalt zentriert ist -->
+			<div style="width:50%;margin:10px auto;text-align:center">
+																		<!-- Breite halb so breit wie Bildschirm -->
+				<head>
+					<style>
+						ul {list-style-type: none;
+							margin: 0;
+							padding: 0;
+							overflow: hidden;
+							background-color: #333333;}
+
+						li {float: bottom;
+							border:solid;
+							border-color:white;
+							border-width: 1px;
+							height: 90px;}
+
+						li a { display: block;
+							color: white;
+							text-align: center;
+							line-height: 58px;
+							padding: 16px;
+							text-decoration: none;}
+
+						li a:hover {
+							background-color: #111111;}
+					</style>
+				</head>
+				<body>
+					<ul>
+						<li>
+							<a href="./servierer.html">ServiererIn</a>
+						</li>
+						<li>
+							<a href="./kellner.html">KellnerIn</a>
+						</li>
+					</ul>
+				</body>
+			</div>
+		</div>
+		
+		<div style="text-align:center;margin-top:30px;">															<!-- Gruppenlogo -->
+			<img src="logo_neu_transparent.png" alt="Gruppenlogo" style="width:60%;">
+		</div>
+	</body>
+	</html>
+	
