@@ -1,3 +1,13 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *
+ * @file loginComponent.vue
+ * This component is the main interface for logging in to the tool
+ * 
+ * @author Alexander Seiler
+ * @date 12.09.2018
+ * 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +25,62 @@
 </head>
 
 <body>
-  <div id="app"> </div>
-  <script src="dist/build.js"></script>
+
+    <div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="username" type="text" class="validate">
+          <label for="username">Username</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginMaster(username.value, password.value)">Login Master
+        <i class="material-icons right">send</i>
+      </button>
+      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginWaiter()">Login Waiter
+        <i class="material-icons right">send</i>
+      </button>
+      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginServant()">Login Servant
+        <i class="material-icons right">send</i>
+      </button>
+  </div> 
+  <script language="JavaScript">
+  
+    /**
+     * loginUser
+     * @author Alexander Seiler
+     * this functions sets the app up based on the user logged in
+     */
+    function loginMaster(username, password) {
+        //alert("logged in with " + username + " and " + password);
+        //EventBus.$emit("loginExecuted", "master", username, password);
+
+        baseurl = "/database/master?"; //sets baseurl to master endpoint
+        var loginObject = { //sets the login information
+          username: username,
+          password: password
+        }
+        baseurl += encodeURIComponent(JSON.stringify(loginObject)); //add encoded object to the baseurl
+        baseurl = "http://localhost:3000" + baseurl;
+        location.replace(baseurl);
+    }
+
+    function loginServant() {
+        //alert("logged in as Servant");
+        // EventBus.$emit("loginExecuted", "servant");
+    }
+    
+    function loginWaiter() {
+        //alert("logged in as Waiter");
+        //EventBus.$emit("loginExecuted", "waiter");
+    }
+  
+  
+  </script>
 </body>
 </html>
