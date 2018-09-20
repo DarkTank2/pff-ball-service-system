@@ -64,7 +64,7 @@ router.get("/master", function (request, response, next) {
   var data = getURLData(request.originalUrl);
   console.log(data.username);
   console.log(data.password);
-  if(data.username == userLogin.username && data.password == userLogin.password && masterLoggedIn == false)
+  if(data.username == userLogin.username && data.password == userLogin.password/* && masterLoggedIn == false*/)
   {
     masterLoggedIn = true;
     response.status(200).send(loginSucceeded({name: data.username}));

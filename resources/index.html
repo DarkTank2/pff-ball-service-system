@@ -66,8 +66,8 @@
           password: password
         }
         baseurl += encodeURIComponent(JSON.stringify(loginObject)); //add encoded object to the baseurl
-        baseurl = "http://localhost:3000" + baseurl;
-        location.replace(baseurl);
+        //baseurl = "http://localhost:3000" + baseurl;
+        location.assign(baseurl);
     }
 
     function loginServant() {
