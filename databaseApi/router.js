@@ -11,6 +11,26 @@ const loginFailed = pug.compileFile('./resources/pugs/loginFailed.pug');
 
 var masterLoggedIn = false;
 
+var retObject = {
+  baseurl: "http://localhost:3000",
+  items: [
+    {
+      name: "Sushi",
+      image: "/img/sushi.jpg",
+      price: "3,40€"
+    },
+    {
+      name: "Schweinsbraten",
+      image: "/img/schweinsbraten.jpg",
+      price: "5,-"
+    },
+    {
+      name: "Knödel",
+      image: "/img/schweinsbraten.jpg",
+      price: "18,-"
+    }
+  ]
+}
 
 router.use(bodyParser.urlencoded({ extended: false }));
 console.log("Use databaseRouter");
@@ -67,7 +87,8 @@ router.get("/master", function (request, response, next) {
   if(data.username == userLogin.username && data.password == userLogin.password/* && masterLoggedIn == false*/)
   {
     masterLoggedIn = true;
-    response.status(200).send(loginSucceeded({name: data.username}));
+    var retval = loginSucceeded(retObject);
+    response.status(200).send(retval);
   }
   else{
     response.status(404).send(loginFailed({name: data.username}));

@@ -25,8 +25,17 @@
 </head>
 
 <body>
-
-    <div>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="brand-logo center">
+        <img id="company-logo" src="./img/logo36.png" />
+      </div>
+      <div class="left hide-on-med-and-down" style="line-height:70px; height: 80px;">
+        <font id="headline">Login</font>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
       <div class="row">
         <div class="input-field col s12">
           <input id="username" type="text" class="validate">
@@ -39,15 +48,27 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginMaster(username.value, password.value)">Login Master
-        <i class="material-icons right">send</i>
-      </button>
-      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginWaiter()">Login Waiter
-        <i class="material-icons right">send</i>
-      </button>
-      <button class="btn waves-effect waves-red" type="submit" name="action" onclick="loginServant()">Login Servant
-        <i class="material-icons right">send</i>
-      </button>
+      <div class="row">
+        <div class="col s7 m4 l4 xl4">
+          <button class="btn red lighten-2 waves-effect waves-red" type="submit" name="action" onclick="loginMaster(username.value, password.value)">Login Master
+              <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s7 m4 l4 xl4">
+          <button class="btn red lighten-2 waves-effect waves-red" type="submit" name="action" onclick="loginWaiter()">Login Waiter
+              <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s7 m4 l4 xl4">
+          <button class="btn red lighten-2 waves-effect waves-red" type="submit" name="action" onclick="loginServant()">Login Servant
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
   </div> 
   <script language="JavaScript">
   
