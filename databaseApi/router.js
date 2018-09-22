@@ -4,6 +4,10 @@ var router = require("express").Router(); //initiate Router
 var bodyParser = require('body-parser');
 var buffer = require("./buffer.js");
 var userLogin = require("./loginData.json");
+var pug = require('pug');
+
+const loginSucceeded = pug.compileFile('./resources/pugs/master.pug');
+const loginFailed = pug.compileFile('./resources/pugs/loginFailed.pug');
 
 var masterLoggedIn = false;
 
@@ -60,13 +64,13 @@ router.get("/master", function (request, response, next) {
   var data = getURLData(request.originalUrl);
   console.log(data.username);
   console.log(data.password);
-  if(data.username == userLogin.username && data.password == userLogin.password && masterLoggedIn == false)
+  if(data.username == userLogin.username && data.password == userLogin.password/* && masterLoggedIn == false*/)
   {
     masterLoggedIn = true;
-    response.status(200).json({response: "ok"});
+    response.status(200).send(loginSucceeded({name: data.username}));
   }
   else{
-    response.status(404).json({response: "error"});
+    response.status(404).send(loginFailed({name: data.username}));
   }
 });
 

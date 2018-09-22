@@ -1,0 +1,13 @@
+//- master.pug
+//- p #{name}'s Pug source code!
+doctype html
+html
+    head
+        include meta.pug
+        title 36er Master
+        include source.pug
+    body
+        div(class='row')
+            div(class='input-field col s6')
+                input(id='username' type='text' class='validate')
+                label(for='username') #{name}
