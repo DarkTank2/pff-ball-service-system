@@ -19,14 +19,16 @@
 			<div style="width:70%;min-height:180px;margin:0 auto;align-items: center">
 			<!--  -->
 			<head>
+				<!-- für automatisch aktuelle Jahreszahl im Header der Seite -->
 				<script language="JavaScript">
-					function mdy(todaysdate) {								<!-- für automatisch aktuelle Jahreszahl im Header der Seite -->
+					function mdy(todaysdate) {								
 						return todaysdate.getYear()+1900}
 				</script>
 			</head>
 			<body>
+				<!--  + aktuelle Jahreszahl -->
 				<h1>36er<br>Pfadfinderball<br>  									
-					<script language="JavaScript">							<!--  + aktuelle Jahreszahl -->
+					<script language="JavaScript">							
 						year = new Date()
 						document.write (mdy(year))
 					</script>
