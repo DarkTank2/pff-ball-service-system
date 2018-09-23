@@ -12,7 +12,7 @@ const loginFailed = pug.compileFile('./resources/pugs/loginFailed.pug');
 var masterLoggedIn = false;
 
 var retObject = {
-  baseurl: "http://localhost:3000",
+  baseurl: "http://192.168.0.107:3000",
   items: [
     {
       name: "Sushi",
@@ -30,6 +30,40 @@ var retObject = {
       price: "18,-"
     }
   ]
+}
+
+var orderObject = {
+  baseurl: "http://192.168.0.107:3000",
+  orders: {
+    food: [
+      {
+        index: "1020",
+        table: "12"
+      },
+      {
+        index: "1010",
+        table: "13"
+      },
+      {
+        index: "1021",
+        table: "10"
+      }
+    ],
+    drinks: [
+      {
+        index: "100",
+        table: "12"
+      },
+      {
+        index: "200",
+        table: "13"
+      },
+      {
+        index: "300",
+        table: "10"
+      }
+    ]
+  }
 }
 
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -87,7 +121,7 @@ router.get("/master", function (request, response, next) {
   if(data.username == userLogin.username && data.password == userLogin.password/* && masterLoggedIn == false*/)
   {
     masterLoggedIn = true;
-    var retval = loginSucceeded(retObject);
+    var retval = loginSucceeded(orderObject);
     response.status(200).send(retval);
   }
   else{

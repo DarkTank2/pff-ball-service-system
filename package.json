@@ -16,7 +16,7 @@
     "is-iso-date": "0.0.1",
     "jquery": "^3.2.1",
     "js-yaml": "^3.12.0",
-    "materialize-css": "^0.99.0",
+    "materialize-css": "^1.0.0-rc.2",
     "mathjs": "^3.20.0",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.18",

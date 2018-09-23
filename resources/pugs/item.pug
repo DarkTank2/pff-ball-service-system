@@ -4,9 +4,11 @@ mixin itemCard(item, baseurl)
         div(class='card z-depth-5')
             .card-image
                 img(src=baseurl + item.image)
+                a(class='btn-floating halfway-fab waves-effect waves-light red')
+                    i(class="material-icons") add
             .card-content
                 p #{item.name}
                 p #{item.price}
-            .card-action    
+            //-.card-action    
                 a(class='btn-floating btn-large waves-effect waves-light red')
                     i(class='material-icons') add

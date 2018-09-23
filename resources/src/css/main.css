@@ -7,12 +7,12 @@
  */
 
 
-/*---------- START BACKGROUND COLOR ---------------------------------------------*/
+/*---------- START BACKGROUND COLOR ---------------------------------------------
 
 body {
-    /* background-image: url('../img/background.jpg'); */
+    /* background-image: url('../img/background.jpg'); 
     background: #f2f2f2;
-    /*add "" if you want */
+    /*add "" if you want 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -22,7 +22,7 @@ body {
 /*---------- END BACKGROUND COLOR ---------------------------------------------*/
 
 
-/*----------- START COLORS FOR WARNING SIGNALS @STATUSBAR COMPONENT---------------*/
+/*----------- START COLORS FOR WARNING SIGNALS @STATUSBAR COMPONENT---------------
 
 .yellow {
     background: #ffea00 !important;
@@ -43,7 +43,7 @@ body {
 /*----------- END COLORS FOR WARNING SIGNALS @STATUSBAR COMPONENT-----------------*/
 
 
-/* Print functionality stuff */
+/* Print functionality stuff 
 
 .print-background-color {
     -webkit-print-color-adjust: exact;
@@ -70,7 +70,7 @@ body {
     height: auto;
     width: 165px;
 }
-
+/*
 #demoLogoWrapper {
     height: 60px;
     line-height: 60px;
@@ -89,13 +89,13 @@ body {
 }
 
 
-/*giving the headline also 60px height and smoothing out the menubox + headline with the logo */
+/*giving the headline also 60px height and smoothing out the menubox + headline with the logo 
 
 #headline h4 {
     padding-left: 10px;
     color: white;
     font-size: 28px
-    /*text-shadow: 2px 2px #009999;*/
+    /*text-shadow: 2px 2px #009999;
 }
 
 
@@ -105,7 +105,7 @@ body {
 /*--------------------------- START COLORS FOR COMPONENT HEADBOXES----------------
  * For color pairs e.g. black background and white Font color, use:
  * font-color in the classes below, example @ color-progress-bar
-*/
+
 
 .color-progress-bar {
     background: #424242 !important;
@@ -134,7 +134,7 @@ body {
 /*
  * Default text height to change the Headline sizes of the components use the h5 tag (current = default) for components
  * and h2 tag for colum headlines
- */
+ 
 
 h5 {
     font-size: 1.6em !important;
@@ -169,7 +169,7 @@ h6{
 
 /*
  * Here are some definitions for icons used in the various Traffic Light Modules
- */
+ 
 
 .green-circle-icon {
     background: url('../img/green-circle.svg') no-repeat;
@@ -212,7 +212,7 @@ h6{
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    /* Position the tooltip */
+    /* Position the tooltip 
     position: absolute;
     z-index: 1;
     width: 120px;
@@ -273,7 +273,7 @@ h6{
 }
 
 
-/*Defining general component*/
+/*Defining general component
 
 .rounded {
     border-radius: 3px !important;
@@ -304,16 +304,8 @@ h6{
 }
 
 
-/* Card component */
+/* Card component 
 
-.collection-header {
-    border-bottom: 0px !important;
-}
-
-.collection-item {
-    padding: 0!important;
-    background-color: transparent;
-}
 
 .not-valid-component {
     height: 100px;
@@ -325,14 +317,14 @@ h6{
 
 .component .row {
     margin-bottom: 0px;
-}
+}*/
 
 body {
     overflow-y: scroll;
     /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
 }
-
+/*
 @media print {
     .dont-print {
         display: none;
@@ -342,4 +334,4 @@ body {
 @font-face{
     font-family: 'siemens';
     src: url('../img/fonts/sisan03.ttf')
-}
+}*/

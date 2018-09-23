@@ -1,19 +1,23 @@
-//- master.pug
-//- p #{name}'s Pug source code!
+//- include master.pug
 doctype html
-include item.pug
+//-include item.pug
+include oneOrder.pug
 html
     head
         include meta.pug
         title 36er Master
         include source.pug
     body
-        //- div(class='row')
-            div(class='input-field col s6')
-                input(id='username' type='text' class='validate')
-                label(for='username') #{name}
         include header.pug
-        .container
-            .row
-                each val in items
-                    +itemCard(val, baseurl)
+        .row
+            div(class='col s12 m12 l6 xl6')
+                ul(class='collapsible')
+                    each order, index in orders.food
+                        +oneOrder(order, baseurl, index, 'local_dining', 'food')
+            div(class='col s12 m12 l6 xl6')
+                ul(class='collapsible')
+                    each order, index in orders.drinks
+                        +oneOrder(order, baseurl, index, 'local_bar', 'drinks')
+
+        script
+            include ../scripts/master.js

@@ -1,0 +1,12 @@
+//- include oneCollapsible.pug
+li(id=type + index)
+    .collapsible-header
+        ul(class='collection col s12 m12 l12 xl12')
+            li(class='collection-item avatar')
+                i(class='tiny material-icons circle red') #{icon}
+                span(class='title') #{order.index}
+                p Table: #{order.table}
+                a(class='secondary-content' onclick='sendOrder(' + order.index + ',' + index + ',"' + type +'")')
+                    i(class='tiny material-icons') send
+    .collapsible-body
+        span Hier kommt dann die bestellung rein!
