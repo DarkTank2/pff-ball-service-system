@@ -1,3 +1,4 @@
 //- include oneBill.pug
 mixin oneOrder(order, baseurl, index, icon, type)
-    include oneCollapsible.pug
+    li(id=type + index class='hoverable')
+        include oneCollapsible.pug

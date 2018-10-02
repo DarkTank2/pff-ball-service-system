@@ -7,12 +7,13 @@ var userLogin = require("./loginData.json");
 var pug = require('pug');
 
 const loginSucceeded = pug.compileFile('./resources/pugs/master.pug');
-const loginFailed = pug.compileFile('./resources/pugs/loginFailed.pug');
+const loginFailed = pug.compileFile('./resources/pugs/waiter.pug');
+const oneOrder = pug.compileFile('./resources/pugs/oneCollapsible.pug');
 
 var masterLoggedIn = false;
 
 var retObject = {
-  baseurl: "http://192.168.0.107:3000",
+  baseurl: "http://localhost:4000",
   items: [
     {
       name: "Sushi",
@@ -33,7 +34,7 @@ var retObject = {
 }
 
 var orderObject = {
-  baseurl: "http://192.168.0.107:3000",
+  baseurl: "http://localhost:4000",
   orders: {
     food: [
       {
@@ -125,7 +126,7 @@ router.get("/master", function (request, response, next) {
     response.status(200).send(retval);
   }
   else{
-    response.status(404).send(loginFailed({name: data.username}));
+    response.status(404).send(loginFailed(retObject));
   }
 });
 
@@ -150,8 +151,16 @@ router.get("/storeOrder", function(request, response, next) {
 
 router.get("/getFirstOrderFood", function(request, response, next) {
   logGETParameters(request);
+  var data = request.originalUrl.split("?")[1];
+  var parameterPais = data.split("&");
+  var dataObj = {};
+  for(var i = 0; i < parameterPais.length; ++i)
+  {
+    dataObj[parameterPais[i].split("=")[0]] = parameterPais[i].split("=")[1];
+  }
   getFirstOrder("orderFood").then(function(data) {
-    response.status(200).json(data);
+    var retData = oneOrder({order:{table: "10", index: "1234"}, icon: "local_dining", index: dataObj.index, type: "trash"});
+    response.status(200).send(retData);
   },
   function(err) {
     response.status(404).json(err);
